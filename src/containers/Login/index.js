@@ -12,7 +12,8 @@ import {
     Label, 
     Input, 
     Button, 
-    SignInLink    
+    SignInLink,
+    ErrorMessage    
 
 } from './styles'
 
@@ -39,12 +40,12 @@ function Login() {
 
                 <form noValidate onSubmit={handleSubmit(onSubmit)} >
                 <Label>Email</Label>
-                <Input type='email' {...register("email")} />
-                <p>{errors.email?.message}</p>
+                <Input type='email' {...register("email")} error={errors.email?.message} />
+                <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
                 <Label>Senha</Label>
-                <Input type='password' {...register("password")} />
-                <p>{errors.password?.message}</p>
+                <Input type='password' {...register("password")} error={errors.password?.message} />
+                <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
                 <Button type='submit'>Entrar</Button>
                 </form>

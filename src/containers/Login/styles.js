@@ -46,7 +46,8 @@ export const Label = styled.p`
 export const Input = styled.input`
     width: 300px;
     height: 35px;
-    border: none;
+    border: ${props => (props.error ? '2px solid #cc1717' : 'none')};
+    border-radius: 5px;
     padding-left: 10px;
 `
 
@@ -82,4 +83,13 @@ export const SignInLink = styled.p`
         cursor: pointer;
         text-decoration: underline;
     }
+`
+
+export const ErrorMessage = styled.p`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    margin-top:7px;
+    color: #cc1717;
 `
