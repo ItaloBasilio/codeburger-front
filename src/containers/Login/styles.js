@@ -36,7 +36,8 @@ export const ContainerItens = styled.div`
 
 export const Label = styled.p`
     font-style: normal;
-    font-weight: 500;
+    color: #502314;
+    font-weight: 600;
     font-size: 16px;
     line-height: 14px;
     margin-top: 15px;
@@ -44,7 +45,7 @@ export const Label = styled.p`
 `
 
 export const Input = styled.input`
-    width: 300px;
+    width: 350px;
     height: 35px;
     border: ${props => (props.error ? '2px solid #cc1717' : 'none')};
     border-radius: 5px;
