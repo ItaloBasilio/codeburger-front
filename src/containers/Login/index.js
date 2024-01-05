@@ -8,14 +8,14 @@ import api from '../../services/api'
 import Button from '../../components/Button'
 import LoginImg from '../../assets/login-image.png'
 
-import { 
+import {
     Container,
     LoginImage,
     ContainerItens,
-    Label, 
-    Input, 
+    Label,
+    Input,
     SignInLink,
-    ErrorMessage    
+    ErrorMessage
 
 } from './styles'
 
@@ -27,47 +27,48 @@ function Login() {
     })
 
 
-    const { register, handleSubmit, formState: { errors }} = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
     const onSubmit = async clientData => {
 
-        const response =  await api.post('sessions', {
-            email: clientData.email,
-            password: clientData.password 
-        })
+        const response = await toast.promise(
+            api.post('sessions', {
+                email: clientData.email,
+                password: clientData.password
+            }),
+            {
+                pending: 'Verificando seus dados',
+                success: 'Seja Bem-vindo(a)🚀 ',
+                error: 'Verifique seu e-mail e senha! 🤯'
+            }
+        )
 
-        toast.success('🚀 Logado com sucesso!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
+
+
+
+
         console.log(response)
     }
 
     return (
         <Container>
-            <LoginImage src={LoginImg} alt="login-image"/>
+            <LoginImage src={LoginImg} alt="login-image" />
             <ContainerItens>
 
                 <h1>Login</h1>
 
                 <form noValidate onSubmit={handleSubmit(onSubmit)} >
-                <Label>Email</Label>
-                <Input type='email' {...register("email")} error={errors.email?.message} />
-                <ErrorMessage>{errors.email?.message}</ErrorMessage>
+                    <Label>Email</Label>
+                    <Input type='email' {...register("email")} error={errors.email?.message} />
+                    <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-                <Label>Senha</Label>
-                <Input type='password' {...register("password")} error={errors.password?.message} />
-                <ErrorMessage>{errors.password?.message}</ErrorMessage>
+                    <Label>Senha</Label>
+                    <Input type='password' {...register("password")} error={errors.password?.message} />
+                    <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-                <Button type='submit'>Entrar</Button>
+                    <Button type='submit'>Entrar</Button>
                 </form>
                 <SignInLink>Não possui conta?<a> Criar conta</a> </SignInLink>
             </ContainerItens>

@@ -12,8 +12,8 @@ root.render(
  
 <>
 
-<Login />
-<ToastContainer />
+<Register />
+<ToastContainer autoClose={2000} theme="colored" />
 <GlobalStyles />
 
 </>
