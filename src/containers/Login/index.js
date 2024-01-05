@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import api from '../../services/api'
+import Button from '../../components/Button'
 import LoginImg from '../../assets/login-image.png'
 
 import { 
@@ -12,7 +13,6 @@ import {
     ContainerItens,
     Label, 
     Input, 
-    Button, 
     SignInLink,
     ErrorMessage    
 

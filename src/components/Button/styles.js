@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 export const ContainerButton = styled.button`
     width: 150px;
     background-color: #d62300;
@@ -8,6 +9,8 @@ export const ContainerButton = styled.button`
     padding: 10px 10px;
     border: none;
     border-radius: 8px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     
     cursor: pointer;
 
@@ -18,7 +21,6 @@ export const ContainerButton = styled.button`
    &:active{
     opacity: 0.6;
    }
-
 `
 
 
