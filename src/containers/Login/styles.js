@@ -27,6 +27,11 @@ export const ContainerItens = styled.div`
         text-align: center;
         color: #502314;
     }
+
+    form{
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 export const Label = styled.p`
@@ -42,6 +47,7 @@ export const Input = styled.input`
     width: 300px;
     height: 35px;
     border: none;
+    padding-left: 10px;
 `
 
 export const Button = styled.button`
@@ -53,6 +59,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 8px;
     margin-top: 35px;
+    margin-bottom: 35px;
     
     cursor: pointer;
 
@@ -65,4 +72,14 @@ export const Button = styled.button`
    }
 `
 
-export const SignInLink = styled.p``
+export const SignInLink = styled.p`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 16px;
+
+    a{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+`
