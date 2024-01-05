@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import * as Yup from 'yup'
+import { yupResolver } from "@hookform/resolvers/yup"
 
 import LoginImg from '../../assets/login-image.png'
 
@@ -16,7 +18,15 @@ import {
 
 function Login() {
 
-    const { register, handleSubmit, formState: { errors }} = useForm();
+    const schema = Yup.object().shape({
+        email: Yup.string().email("Entre com um e-mail válido").required(),
+        password: Yup.string().required("A senha é obrigatória").min(6, "A senha deve ter pelo menos 6 caracteres"),
+    })
+
+
+    const { register, handleSubmit, formState: { errors }} = useForm({
+        resolver: yupResolver(schema)
+    });
 
     const onSubmit = data => console.log(data)
 
@@ -27,12 +37,14 @@ function Login() {
 
                 <h1>Login</h1>
 
-                <form onSubmit={handleSubmit(onSubmit)} >
+                <form noValidate onSubmit={handleSubmit(onSubmit)} >
                 <Label>Email</Label>
                 <Input type='email' {...register("email")} />
+                <p>{errors.email?.message}</p>
 
                 <Label>Senha</Label>
                 <Input type='password' {...register("password")} />
+                <p>{errors.password?.message}</p>
 
                 <Button type='submit'>Entrar</Button>
                 </form>
