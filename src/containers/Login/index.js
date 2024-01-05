@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
+import { toast } from 'react-toastify';
 
 import api from '../../services/api'
 import Button from '../../components/Button'
@@ -37,6 +38,16 @@ function Login() {
             password: clientData.password 
         })
 
+        toast.success('🚀 Logado com sucesso!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
         console.log(response)
     }
 
