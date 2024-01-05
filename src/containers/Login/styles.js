@@ -38,7 +38,11 @@ export const Label = styled.p`
     margin-bottom: 10px;
 `
 
-export const Input = styled.input``
+export const Input = styled.input`
+    width: 300px;
+    height: 35px;
+    border: none;
+`
 
 export const Button = styled.button`
     width: 150px;
@@ -48,6 +52,7 @@ export const Button = styled.button`
     padding: 10px 10px;
     border: none;
     border-radius: 8px;
+    margin-top: 35px;
     
     cursor: pointer;
 
