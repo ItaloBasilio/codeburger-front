@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    background-color: #f5ebdc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +26,11 @@ export const Container = styled.div`
     color: white;
     }
 
+    .jOqRmk{
+        background-color:#d62300;  
+        box-shadow: 0 0 2px 0px #d62300;
+    }
+
     .rec-dot_active{
         
         background-color:#d62300;
@@ -42,16 +48,27 @@ export const Container = styled.div`
     }
 
 
-
 `
 
 export const ContainerItems = styled.div`
     display: flex;
     flex-direction: column;
+
+    .titleProduct{
+       font-weight:500;
+       font-size: 15px;
+    }
+
+    .titlePrice{
+        font-size: 18px;
+        font-weight: 600;
+        color:#461c0e;
+    }
 `
 
 export const Image = styled.img`
     width: 200px;
+    border-radius: 15px;
 `
 
 export const Button = styled.button`
