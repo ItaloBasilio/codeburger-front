@@ -18,12 +18,15 @@ function Products() {
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
+    const [filteredProducts, setfilteredProducts] = useState([])
     const [activeCategory, setActiveCategory] = useState(0)
 
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get('categories')
+
             const newCategories = [{ id: 0, name: 'Todos' }, ...data]
+
             setCategories(newCategories)
         }
 
@@ -41,6 +44,21 @@ function Products() {
         loadProducts()
         loadCategories()
     }, [])
+
+
+    useEffect( () => {
+
+        if(activeCategory === 0){
+            setfilteredProducts(products)
+        }else{
+
+        const newFilteredProducts = products.filter( 
+            product => product.category_id === activeCategory
+            )
+
+        setfilteredProducts(newFilteredProducts)
+        }
+    },[activeCategory, products])
 
 
 
@@ -62,7 +80,7 @@ function Products() {
                 ))}
             </CategoriesMenu>
             <ProductsContainer>
-                { products && products.map(product => (
+                { filteredProducts && filteredProducts.map(product => (
                     <CardProduct key={product.id} product={product}/>
                 ))}
                 
