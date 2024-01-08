@@ -1,26 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {Button} from '../Button'
-
-import {
-    Container,
-    Image,
-    ProductName,
-    ProductPrice,
-    ButtonCart
-
-} from './styles'
+import { useCart } from '../../hooks/cartContext'
+import { Button } from '../Button'
+import { Container, Image,ProductName,ProductPrice } from './styles'
 
 export function CardProduct({ product }) {
-
+    const { putProductInCart  } = useCart()
     return (
         <Container>
             <Image src={product.url} alt="imagem-produto" />
             <div>
                 <ProductName>{product.name}</ProductName>
                 <ProductPrice>{product.formatedPrice}</ProductPrice>
-                <ButtonCart>Quero esse!</ButtonCart>
+                <Button onClick={ () => putProductInCart(product)}>Quero esse!</Button>
             </div>
         </Container>
     )
