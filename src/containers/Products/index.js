@@ -12,9 +12,9 @@ import {
 
 } from './styles'
 import api from '../../services/api'
-import CardProduct from '../../components/CardProduct'
+import {CardProduct} from '../../components'
 
-function Products() {
+export function Products() {
 
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
@@ -89,6 +89,3 @@ function Products() {
     )
 
 }
-
-
-export default Products

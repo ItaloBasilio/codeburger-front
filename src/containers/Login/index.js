@@ -7,7 +7,7 @@ import { Link , useHistory } from 'react-router-dom'
 
 import { useUser } from '../../hooks/userContext';
 import api from '../../services/api'
-import Button from '../../components/Button'
+import {Button} from '../../components'
 import LoginImg from '../../assets/login-image.png'
 
 import {
@@ -21,7 +21,7 @@ import {
 
 } from './styles'
 
-function Login() {
+export function Login() {
 
     const history = useHistory()
 
@@ -82,5 +82,3 @@ function Login() {
         </Container>
     )
 }
-
-export default Login

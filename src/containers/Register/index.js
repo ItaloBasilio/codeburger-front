@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
-import Button from '../../components/Button'
+import {Button} from '../../components'
 import RegisterImg from '../../assets/cadastro.png'
 
 import {
@@ -20,7 +20,7 @@ import {
 
 } from './styles'
 
-function Register() {
+export function Register() {
 
     const schema = Yup.object().shape({
         name: Yup.string().required("Campo nome é obrigatório"),
@@ -102,5 +102,3 @@ function Register() {
         </Container>
     )
 }
-
-export default Register
