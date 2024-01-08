@@ -21,3 +21,12 @@ export const CategoryButton = styled.button`
     font-weight: 600;
     
 `
+
+export const ProductsContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    padding: 40px;
+    justify-items: center;
+    margin-top: 20px;
+`
