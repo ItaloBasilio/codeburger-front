@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    margin-top: 30px;
-    margin-left: 30px;
     background-color: #f5ebdc;
     box-shadow: 0px 10px 40px rgba(0,0,0,0.03);
     border-radius: 20px;
