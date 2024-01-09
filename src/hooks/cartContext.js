@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 const CartContext = createContext({});
 
 export const CartProvider = ({ children }) => {
-  const [cartproducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 
   const putProductInCart = async (product) => {
-    const cartIndex = cartproducts.findIndex((prd) => prd.id === product.id);
+    const cartIndex = cartProducts.findIndex((prd) => prd.id === product.id);
 
-    let newCartProducts = [...cartproducts]; // Use spread operator para criar uma cópia
+    let newCartProducts = [...cartProducts]; // Use spread operator para criar uma cópia
 
     if (cartIndex >= 0) {
       newCartProducts[cartIndex].quantity += 1;
     } else {
       product.quantity = 1;
-      newCartProducts = [...cartproducts, product];
+      newCartProducts = [...cartProducts, product];
     }
 
     setCartProducts(newCartProducts);
@@ -36,7 +36,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ putProductInCart, cartproducts }}>
+    <CartContext.Provider value={{ putProductInCart, cartProducts }}>
       {children}
     </CartContext.Provider>
   );

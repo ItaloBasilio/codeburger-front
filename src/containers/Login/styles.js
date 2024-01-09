@@ -58,6 +58,7 @@ export const SignInLink = styled.p`
     font-weight: normal;
     font-size: 15px;
     line-height: 16px;
+    margin-top: 20px;
 
     a{
         cursor: pointer;
