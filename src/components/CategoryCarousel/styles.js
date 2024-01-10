@@ -42,6 +42,24 @@ export const Container = styled.div`
         box-shadow: 0 0 1px 1px #d62300;
     }
 
+    .bnUMpT{
+        box-shadow: 0 0 1px 3px rgb(214 35 0);
+    }
+
+    .gowLiU{
+        box-shadow: 0 0 1px 2px rgb(214 35 0);
+    }
+
+    .kmHBWg{
+        box-shadow: 0 0 2px 0px #d62300;
+    }
+
+    .kmHBWg:hover, .kmHBWg:focus:enabled {
+    color: #fff;
+    background-color: #d62300;
+    box-shadow: 0 0 2px 0 #333;
+    }
+
 
 
 `
