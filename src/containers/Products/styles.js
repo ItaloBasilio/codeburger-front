@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    min-height: 100vh;
+    padding-top: 70px;
+    
 `
 
 export const ProductsImg = styled.img`
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
 `
 export const CategoriesMenu = styled.div`
     display: flex;
