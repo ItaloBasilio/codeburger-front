@@ -13,7 +13,7 @@ import { Container, ContainerLeft, PageLink, ContainerRight, ContainerText, Line
 
 export function Header() {
 
-    const { logout } = useUser()
+    const { logout, userData } = useUser()
 
     const {
         push, location: { pathname}
@@ -23,6 +23,8 @@ export function Header() {
         logout()
         push('/login')
     }
+
+    
     return (
         <Container>
             <LogoBurger>
@@ -44,7 +46,7 @@ export function Header() {
 
                 <ContainerText>
                     <p>
-                        Olá, Ítalo
+                        Olá, {userData.name}
                     </p>
                     <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
                 </ContainerText>
