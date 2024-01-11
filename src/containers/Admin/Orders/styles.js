@@ -16,7 +16,7 @@ export const ReactSelectStyle = styled(ReactSelect)`
 
    .css-13cymwt-control{
     cursor: pointer;
-   }
+   } //muito bom
 
 
 `
