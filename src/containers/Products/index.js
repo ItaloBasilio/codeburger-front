@@ -28,6 +28,8 @@ export function Products({location: {state}}) {
     const [filteredProducts, setfilteredProducts] = useState([])
     const [activeCategory, setActiveCategory] = useState(categoryId)
 
+    // Chamada API
+
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get('categories')
@@ -36,6 +38,7 @@ export function Products({location: {state}}) {
 
             setCategories(newCategories)
         }
+
 
         async function loadProducts() {
             const { data: allProducts } = await api.get('products')
@@ -51,6 +54,8 @@ export function Products({location: {state}}) {
         loadProducts()
         loadCategories()
     }, [])
+
+    // Fim da Chamada API
 
 
     useEffect( () => {
