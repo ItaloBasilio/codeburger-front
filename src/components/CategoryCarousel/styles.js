@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const Container = styled.div`
     display: flex;
@@ -73,15 +74,17 @@ export const Image = styled.img`
     width: 200px;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     margin-top: 16px;
     color: #f2e5d4;
     background: #d62300;
-    padding: 20px 0 20px 0;
+    padding: 20px;
     line-height: 5px;
     font-size: 20px;
+    text-align: center;
     border: none;
     border-radius: 8px;
+    text-decoration: none;
     cursor: pointer;
 
     &:hover{
