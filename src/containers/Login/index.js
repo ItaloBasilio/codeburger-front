@@ -50,10 +50,18 @@ export function Login() {
                 error: 'Verifique seu e-mail e senha! 🤯'
             }
         )
+
+
         putUserData(data) 
+        console.log(data)
 
         setTimeout(() => {
-            history.push('/')
+            if(data.admin ){
+                history.push('/pedidos')
+            }else{
+                history.push('/')
+            }
+                
         }, 2000);
 
         
