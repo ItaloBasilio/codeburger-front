@@ -1,4 +1,4 @@
-import React, { createContext, useContext , useEffect, useState }from 'react'
+    import React, { createContext, useContext , useEffect, useState }from 'react'
 import PropTypes from 'prop-types'
 
 const UserContext = createContext({})
@@ -11,6 +11,13 @@ export const UserProvider = ({children}) =>{
         setUserData(userInfo)
 
         await localStorage.setItem('codeburger:userData', JSON.stringify(userInfo) )
+    }
+
+
+    // Função de Logout
+
+    const logout = async () => {
+        await localStorage.removeItem('codeburger:userData')
     }
 
     useEffect(() => {
@@ -27,7 +34,7 @@ export const UserProvider = ({children}) =>{
     }, [] )
 
     return(
-        <UserContext.Provider value={{putUserData, userData}}>
+        <UserContext.Provider value={{putUserData, userData, logout}}>
             {children}
         </UserContext.Provider>
     )
