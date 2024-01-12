@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -12,47 +12,57 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-
-
-import { ProductsImg , ReactSelectStyle } from './styles'
-import api from '../../../services/api'
-import status from './order-status'
 import { toast } from 'react-toastify';
 
+import { ProductsImg, ReactSelectStyle } from './styles';
+import api from '../../../services/api';
+import status from './order-status';
 
-function Row({row}) {
+function Row({ row, setOrders, orders}) {
   const [open, setOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
+
+
+
+
 
   async function setNewStatus(id, status) {
     setIsLoading(true);
     try {
-        await api.put(`orders/${id}`, { status });
-        toast.success('Atualizado com sucesso', {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
+      await api.put(`orders/${id}`, { status });
+  
+      const newOrders = orders.map((order) => {
+        return order._id === id ? { ...order, status } : order;
+      });
+      setOrders(newOrders);
+      toast.success('Status atualizado com sucesso!', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
         });
     } catch (err) {
-        toast.error('Erro ao atualizar o pedido', {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
+      console.error(err);
+      toast.error('Erro no sistema', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
         });
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
-}
+  }
+      
+
 
 
   return (
@@ -70,24 +80,23 @@ function Row({row}) {
         <TableCell component="th" scope="row">
           {row.orderId}
         </TableCell>
-        <TableCell >{row.name}</TableCell>
-        <TableCell >{row.date}</TableCell>
-        <TableCell >
-          <ReactSelectStyle 
-          options={status} 
-          menuPortalTarget={document.body}
-          placeholder="Alterar"
-          defaultValue={status.find( option => option.value === row.status) || null }
-
-          onChange={ newStatus => {
-            setNewStatus(row.orderId, newStatus.value)
-          }}
-
-          isLoading={isLoading}
-
+        <TableCell>{row.name}</TableCell>
+        <TableCell>{row.date}</TableCell>
+        <TableCell>
+          <ReactSelectStyle
+            options={status}
+            menuPortalTarget={document.body}
+            placeholder="Alterar"
+            defaultValue={
+              status.find((option) => option.value === row.status) || null
+            }
+            onChange={(newStatus) => {
+              setNewStatus(row.orderId, newStatus.value);
+            }}
+            isLoading={isLoading}
           />
         </TableCell>
-        <TableCell ></TableCell>
+        <TableCell></TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -101,7 +110,7 @@ function Row({row}) {
                   <TableRow>
                     <TableCell>Quantidade</TableCell>
                     <TableCell>Produto</TableCell>
-                    <TableCell >Categoria</TableCell>
+                    <TableCell>Categoria</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -111,9 +120,12 @@ function Row({row}) {
                         {productRow.quantity}
                       </TableCell>
                       <TableCell>{productRow.name}</TableCell>
-                      <TableCell >{productRow.category}</TableCell>
-                      <TableCell >
-                        <ProductsImg src={productRow.url} alt="imagem-produto" />
+                      <TableCell>{productRow.category}</TableCell>
+                      <TableCell>
+                        <ProductsImg
+                          src={productRow.url}
+                          alt="imagem-produto"
+                        />
                       </TableCell>
                     </TableRow>
                   ))}
@@ -128,21 +140,23 @@ function Row({row}) {
 }
 
 Row.propTypes = {
+  orders: PropTypes.array,
+  setOrders: PropTypes.func,
   row: PropTypes.shape({
     name: PropTypes.string.isRequired,
     orderId: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
-    
+
     products: PropTypes.arrayOf(
       PropTypes.shape({
         quantity: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         category: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      }),
+        url: PropTypes.string.isRequired,
+      })
     ).isRequired,
   }).isRequired,
 };
 
-export default Row
+export default Row;

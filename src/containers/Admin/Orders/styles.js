@@ -17,6 +17,22 @@ export const ReactSelectStyle = styled(ReactSelect)`
    .css-13cymwt-control{
     cursor: pointer;
    } //muito bom
+`
 
+export const Menu = styled.div`
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin: 30px 0;
 
+`
+
+export const LinkMenu = styled.a`
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-weight: ${props => (props.isActiveStatus ? 'bold' : '400') };
+    border-bottom: ${props => (props.isActiveStatus ? '1px solid #d62300' : '400') };
+    padding-bottom: 5px;
+    color: #461c0e;
+    
 `
