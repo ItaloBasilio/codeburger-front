@@ -84,7 +84,7 @@ function Row({ row, setOrders, orders}) {
         <TableCell>{row.date}</TableCell>
         <TableCell>
           <ReactSelectStyle
-            options={status}
+            options={status.filter( sts=> sts.value !== 'Todos' )}
             menuPortalTarget={document.body}
             placeholder="Alterar"
             defaultValue={
