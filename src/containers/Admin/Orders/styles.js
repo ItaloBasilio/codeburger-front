@@ -3,7 +3,6 @@ import ReactSelect from 'react-select'
 
 export const Container = styled.div`
     min-height: 100vh;
-    padding: 20px;
 `
 
 export const ProductsImg = styled.img`
