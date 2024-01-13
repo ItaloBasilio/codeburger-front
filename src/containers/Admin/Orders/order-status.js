@@ -32,13 +32,7 @@ const status = [
         id: 6,
         label: 'Entregue',
         value: 'Entregue'
-    },
-
-    {
-        id: 7,
-        label: 'Cancelado',
-        value: 'Cancelado'
-    },
+    }
 ]
 
 export default status

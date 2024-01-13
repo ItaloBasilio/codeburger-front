@@ -17,7 +17,7 @@ import formatCurrency from '../../../utils/formatCurrency'
 
 
 function Listproducts() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState()
 
   useEffect(() => {
     async function loadOrders() {
@@ -55,7 +55,7 @@ function Listproducts() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((product) => (
+            {products && products.map((product) => (
               <TableRow
                 key={product.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
