@@ -17,17 +17,21 @@ function NewProduct() {
     name: Yup.string().required('Digite o nome do produto'),
     price: Yup.string().required('Digite o preço'),
     category: Yup.object().required('Escolha uma categoria'),
-    file: Yup.mixed().test('required', 'Carregue um arquivo', (value) => {
-      return value && value.length > 0;
-    }).test('fileSize', 'Tamanho máximo de 2mb', (value) => {
-      return value && value[0] && value[0].size <= 200000;
-    }).test('type', 'Arquivos permitidos: jpeg, png, jpg', (value) => {
-      return (
-        (value && value[0] && value[0]?.type === 'image/jpeg') ||
-        (value && value[0] && value[0]?.type === 'image/png')
-      );
-    }),
+    file: Yup.mixed()
+      .test('required', 'Carregue um arquivo', (value) => {
+        return value && value.length > 0;
+      })
+      .test('fileSize', 'Tamanho máximo de 2mb', (value) => {
+        return value && value[0] && value[0].size <= 200000;
+      })
+      .test('type', 'Arquivos permitidos: jpeg, png, jpg', (value) => {
+        return (
+          (value[0] && value[0]?.type === 'image/jpeg') ||
+          (value[0] && value[0]?.type === 'image/png')
+        );
+      }),
   });
+  
 
   const {
     register,
