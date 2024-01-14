@@ -40,6 +40,7 @@ export default createGlobalStyle`
     border-radius: 6px; /* Borda arredondada do "ponteiro" */
   }
 
+
   ::-moz-scrollbar-track {
     background-color: #f1f1f1; /* Cor da trilha da barra de rolagem */
   }
