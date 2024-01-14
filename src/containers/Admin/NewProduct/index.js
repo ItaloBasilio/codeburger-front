@@ -68,7 +68,9 @@ function NewProduct() {
                 }),
                 singleValue: (styles) => ({
                   ...styles,
-                  color: '#ed2f09',
+                  color: '#000',
+                  fontWeight: '600',
+                  border: 'none',
                 }),
                 option: (styles, { isFocused }) => ({
                   ...styles,

@@ -35,10 +35,13 @@ export const Container = styled.div`
         }
     }
 
-    .category_id{
-        color: red;
+    .css-18xndy-control:hover{
+        border-color: #ff0000; 
     }
 
+    .css-tj5bde-Svg {
+    color: #461c0e;
+    }
 
 `
 
