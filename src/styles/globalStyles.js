@@ -17,7 +17,7 @@ export default createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-    background-color: #d62400; /* Cor do "ponteiro" da barra de rolagem */
+    background: linear-gradient(to bottom, #d62400, #e75018, #ff8b00, #ffac00, #ffc733); /* Efeito degradê com 5 cores */
     border-radius: 6px; /* Borda arredondada do "ponteiro" */
     box-shadow: 6px 6px 10px #d62400; /* Brilho com sombra da mesma cor */
     }
