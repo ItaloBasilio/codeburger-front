@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
-import {Button} from '../../components'
+import {Button , ErrorMessage} from '../../components'
 import RegisterImg from '../../assets/cadastro.png'
 
 import {
@@ -15,8 +15,7 @@ import {
     ContainerItens,
     Label,
     Input,
-    SignInLink,
-    ErrorMessage
+    SignInLink
 
 } from './styles'
 

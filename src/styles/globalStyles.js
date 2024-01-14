@@ -45,6 +45,10 @@ export default createGlobalStyle`
     background-color: #f1f1f1; /* Cor da trilha da barra de rolagem */
   }
 
+  body {
+  overflow-x: hidden;
+  }
+
   /* Estilos para dispositivos móveis */
 @media screen and (max-width: 767px) {
   ::-webkit-scrollbar {

@@ -7,7 +7,7 @@ import { Link , useHistory } from 'react-router-dom'
 
 import { useUser } from '../../hooks/userContext';
 import api from '../../services/api'
-import {Button} from '../../components'
+import {Button , ErrorMessage} from '../../components'
 import LoginImg from '../../assets/login-image.png'
 
 import {
@@ -16,8 +16,7 @@ import {
     ContainerItens,
     Label,
     Input,
-    SignInLink,
-    ErrorMessage
+    SignInLink
 
 } from './styles'
 
@@ -53,7 +52,6 @@ export function Login() {
 
 
         putUserData(data) 
-        console.log(data)
 
         setTimeout(() => {
             if(data.admin ){
