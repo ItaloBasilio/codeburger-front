@@ -18,6 +18,28 @@ export const Container = styled.div`
         border-radius: 10px;
     }
 
+    .css-1nmdiq5-menu {
+        color: black;
+        background-color: #fff;
+        font-weight: 500;
+
+    }
+
+    .css-13cymwt-control{
+        border: 1px solid #ed2f09;
+        box-shadow: 0 0 0 14px rgba(0,0,0,0,5);
+
+        &:hover {
+        border-color: #ff0000; 
+        box-shadow: 0 0 0 18px rgba(0, 0, 0, 0.5); 
+        }
+    }
+
+    .category_id{
+        color: red;
+    }
+
+
 `
 
 export const Label = styled.p`

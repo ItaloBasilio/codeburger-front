@@ -61,6 +61,21 @@ function NewProduct() {
                 field.onChange(selectedOption);
               }}
               placeholder='Categorias'
+              styles={{
+                control: (styles) => ({
+                  ...styles,
+                  border: 'none',
+                }),
+                singleValue: (styles) => ({
+                  ...styles,
+                  color: '#ed2f09',
+                }),
+                option: (styles, { isFocused }) => ({
+                  ...styles,
+                  backgroundColor: isFocused ? '#ff0000' : 'transparent', // Cor de fundo quando hover
+                  color: isFocused ? '#fff' : '#000', // Cor do texto quando hover
+                }),
+              }}
             />
           )}
         />
