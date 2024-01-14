@@ -23,8 +23,8 @@ function NewProduct() {
       return value && value[0] && value[0].size <= 200000;
     }).test('type', 'Arquivos permitidos: jpeg, png, jpg', (value) => {
       return (
-        (value && value[0] && value[0].type === 'image/jpeg') ||
-        (value && value[0] && value[0].type === 'image/png')
+        (value && value[0] && value[0]?.type === 'image/jpeg') ||
+        (value && value[0] && value[0]?.type === 'image/png')
       );
     }),
   });
