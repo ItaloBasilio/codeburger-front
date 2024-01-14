@@ -28,15 +28,32 @@ export const Label = styled.p`
 
 export const Input = styled.input`
         height:40px ;
-        width: 100%;
         border:none;
         border-radius: 5px;
         box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
         margin-bottom:25px;
+        width: 100%;
+        min-width: 280px;
+        padding-left: 10px;
 `
 
 export const ButtonStyled = styled(Button)`
         width: 100%;
         margin-top:30px;
         padding: 5px 0 5px 0;
+`
+
+export const LabelUpload = styled.label`
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: 1px dashed #ffffff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom:25px;
+
+        input{
+            opacity: 0;
+            width: 1px;
+        }
 `

@@ -60,8 +60,48 @@ export const Container = styled.div`
         box-shadow: 0 0 1px 2px rgb(214 35 0);
     }
 
-    
-    
+    .klENKW{
+        box-shadow: 0 0 1px 3px #d62300;
+        border: 1px solid #d62300;
+    }
+
+    .flTOpl{
+        border: 1px solid #d62300;
+        box-shadow: 0 0 1px 1px #d62300;
+    }
+
+    .bnUMpT{
+        box-shadow: 0 0 1px 3px rgb(214 35 0);
+    }
+
+    .gowLiU{
+        box-shadow: 0 0 1px 2px rgb(214 35 0);
+    }
+
+    .kmHBWg{
+        box-shadow: 0 0 2px 0px #d62300;
+    }
+
+    .gZZOti:hover:enabled, .gZZOti:focus:enabled {
+    color: #fff;
+    background-color: rgb(214 35 0);
+    box-shadow: 0 0 2px 0 #333;
+    }
+
+
+    .heMgZD{
+        box-shadow: 0 0 1px 3px rgb(214 35 0);
+        background-color: rgb(214 35 0);  
+    }
+
+    .heMgZD:hover, .heMgZD:focus {
+    cursor: pointer;
+    box-shadow: 0 0 1px 3px rgb(214 35 0);
+    }
+
+
+                
+                
 
 
 `

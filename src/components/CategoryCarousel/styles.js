@@ -55,10 +55,21 @@ export const Container = styled.div`
         box-shadow: 0 0 2px 0px #d62300;
     }
 
-    .kmHBWg:hover, .kmHBWg:focus:enabled {
+    .gZZOti:hover:enabled, .gZZOti:focus:enabled {
     color: #fff;
-    background-color: #d62300;
+    background-color: rgb(214 35 0);
     box-shadow: 0 0 2px 0 #333;
+    }
+
+
+    .heMgZD{
+        box-shadow: 0 0 1px 3px rgb(214 35 0);
+        background-color: rgb(214 35 0);  
+    }
+
+    .heMgZD:hover, .heMgZD:focus {
+    cursor: pointer;
+    box-shadow: 0 0 1px 3px rgb(214 35 0);
     }
 
 

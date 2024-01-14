@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Container , Label , Input , ButtonStyled } from './styles'
+import { Container , Label , Input , ButtonStyled , LabelUpload } from './styles'
 import api from '../../../services/api'
 import ReactSelect from 'react-select'
 import { useForm } from "react-hook-form"
@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form"
 
 
 function NewProduct() {
+  const [ fileName, setFileName ] = useState(null)
   const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data)
 
@@ -35,8 +36,19 @@ function NewProduct() {
       <Input type='number' {...register("price")} />
 
 
-      <Label>Upload</Label>
-      <Input type='file' accept='image/png, image/jpeg'/>
+      <LabelUpload>
+        { fileName || 'Carregue a imagem do produto'}
+        
+      <input 
+      type='file' 
+      accept='image/png, image/jpeg, image/jpg'
+      {...register("file")}
+      onChange={value => {
+        setFileName(value.target.files[0]?.name)
+      
+      }}
+      />
+      </LabelUpload>
 
       <ReactSelect />
       
