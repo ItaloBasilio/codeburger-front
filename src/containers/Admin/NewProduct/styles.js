@@ -16,6 +16,7 @@ export const Container = styled.div`
         color: #fff;
         padding: 30px;
         border-radius: 10px;
+        border-color: red;
     }
 
     .css-1nmdiq5-menu {
@@ -43,6 +44,7 @@ export const Container = styled.div`
     color: #461c0e;
     }
 
+    
 `
 
 export const Label = styled.p`
