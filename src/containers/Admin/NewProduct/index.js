@@ -7,10 +7,13 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from '../../../components';
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom'
 
 function NewProduct() {
   const [fileName, setFileName] = useState(null);
   const [categories, setCategories] = useState([]);
+  const { push } = useHistory()
 
   // Yup
   const schema = Yup.object().shape({
@@ -42,7 +45,25 @@ function NewProduct() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async data => {
+    const productDataFormData = new FormData()
+
+    productDataFormData.append( 'name', data.name )
+    productDataFormData.append( 'price', data.price )
+    productDataFormData.append( 'category_id', data.category.id )
+    productDataFormData.append( 'file', data.file[0] )
+
+    await toast.promise(api.post('products', productDataFormData ),{
+      pending: 'Criando novo produto',
+      success: 'Produto criado com sucesso',
+      error: 'Falha ao criar o produto'
+    })
+
+    setTimeout(() => {
+        push('/listar-produtos')
+    }, 2000);
+  }
+
 
   // Carregar categorias da API
   useEffect(() => {
@@ -60,14 +81,19 @@ function NewProduct() {
   return (
     <Container>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <div>
         <Label>Nome</Label>
         <Input type='text' {...register('name')} />
         <ErrorMessage>{errors.name?.message}</ErrorMessage>
+        </div>
 
+        <div>
         <Label>Preço</Label>
         <Input type='number' {...register('price')} />
         <ErrorMessage>{errors.price?.message}</ErrorMessage>
+        </div>
 
+        <div>
         <LabelUpload>
           {fileName || (
             <>
@@ -86,7 +112,10 @@ function NewProduct() {
           />
         </LabelUpload>
         <ErrorMessage>{errors.file?.message}</ErrorMessage>
+        </div>
 
+
+        <div>
         <Controller
           name='category'
           control={control}
@@ -118,9 +147,11 @@ function NewProduct() {
                 }),
               }}
             />
+            
           )}
         />
         <ErrorMessage>{errors.category?.message}</ErrorMessage>
+        </div>
 
         <ButtonStyled type='submit'>Adicionar produto</ButtonStyled>
       </form>
