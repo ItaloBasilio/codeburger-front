@@ -1,4 +1,6 @@
+import { useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
+
 
 import { Container, Img , EditIconStyles } from './styles'
 import api from '../../../services/api'
@@ -14,10 +16,13 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CancelIcon from '@mui/icons-material/Cancel';
 import formatCurrency from '../../../utils/formatCurrency'
 
+import paths from '../../../constants/paths';
+
 
 
 function Listproducts() {
   const [products, setProducts] = useState()
+  const { push } = useHistory()
 
   useEffect(() => {
     async function loadOrders() {
@@ -36,6 +41,12 @@ function Listproducts() {
       return <CheckBoxIcon style={{ color: '#44cc11'}} />
     }
     return <CancelIcon style={{ color: '#f81d01'}} />
+  }
+
+
+
+  function editProduct(product){
+    push(paths.EditProduct , { product })
   }
 
 
@@ -67,7 +78,7 @@ function Listproducts() {
                 <TableCell align='center'>{isOffer(product.offer)}</TableCell>
                 <TableCell><Img src={product.url} alt="imagem-produto" /></TableCell>
                 <TableCell>
-                  <EditIconStyles />
+                  <EditIconStyles onClick={() => editProduct(product)}/>
                 </TableCell>
               </TableRow>
             ))}
