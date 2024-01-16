@@ -86,3 +86,16 @@ export const LabelUpload = styled.label`
             width: 1px;
         }
 `
+
+export const ContainerInput = styled.div`
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 30px;
+
+    input{
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+`
